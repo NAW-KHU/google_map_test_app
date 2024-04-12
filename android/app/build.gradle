@@ -24,7 +24,8 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.google_api_app"
-    compileSdk flutter.compileSdkVersion
+    // compileSdk flutter.compileSdkVersion
+    compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -45,8 +46,9 @@ android {
         applicationId "com.example.google_api_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        // minSdkVersion flutter.minSdkVersion
+        // targetSdkVersion 30
         minSdkVersion 20
+        // minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -59,10 +61,18 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    buildFeatures {
+    buildConfig true
+    }
 }
 
 flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+
+    // Maps SDK for Android
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+}

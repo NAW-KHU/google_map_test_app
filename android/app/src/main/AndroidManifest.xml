@@ -1,15 +1,22 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.example.google_api_app">
+    
+
+
+
+
+    
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <application
         android:label="google_api_app"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher"
-        android:usesCleartextTraffic="true">
+        android:icon="@mipmap/ic_launcher">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value=""/>       
+            android:value="AIzaSyBhfgl7_a5ecXxqOamF1jeRum40kiz_nAQ"/>       
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
