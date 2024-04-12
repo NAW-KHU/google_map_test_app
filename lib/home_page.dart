@@ -26,27 +26,38 @@ class _HomePageState extends State<HomePage> {
 
   final Completer<GoogleMapController> _controller = Completer();
 
+  final Set<Marker> _marker = {
+    const Marker(
+      markerId: MarkerId('Times City'),
+      position: LatLng(16.81605105, 96.12887631),
+      infoWindow: InfoWindow(
+        title: 'Times City',
+        snippet: 'Office Tower',
+      )
+      )
+  };
   static const CameraPosition kGoogle = CameraPosition(
-    target: LatLng(37.42796133580664, -122.885749655962),
+    target: LatLng(16.81605105, 96.12887631),
     zoom: 14.4746,
   );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F9D58),
-        title: const Text("Google Maps"),
+        title: const Text("Google Maps in Flutter"),
       ),
       body: Container(
         child: GoogleMap(
           initialCameraPosition: kGoogle,
           mapType: MapType.normal,
           myLocationEnabled: true,
+          myLocationButtonEnabled: true,
           compassEnabled: true,
           onMapCreated: (GoogleMapController controller) {
             _controller.complete(controller);
           },
+          markers: _marker
         ),
       ),
     );
